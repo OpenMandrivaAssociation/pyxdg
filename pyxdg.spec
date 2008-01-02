@@ -11,6 +11,7 @@ Buildarch:        noarch
 Source0:          %{name}-%{version}.tar.bz2
 URL:              http://www.freedesktop.org/Software/pyxdg
 Group:            System/Libraries
+BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:          LGPL
 Requires:         python >= 2.3 
 BuildRequires:    python-devel
