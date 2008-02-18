@@ -4,7 +4,7 @@
 %define release %mkrel 4
 
 Name:             %{name}
-Summary:          PyXDG is a python library to access freedesktop.org standards
+Summary:          Python library to access freedesktop.org standards
 Version:          %{version}
 Release:          %{release}
 Buildarch:        noarch
