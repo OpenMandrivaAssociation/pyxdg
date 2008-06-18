@@ -1,7 +1,7 @@
 #%define installdir /usr/lib/python2.3/site-packages/xdg
 %define name      pyxdg
 %define version 0.15
-%define release %mkrel 5
+%define release %mkrel 6
 
 Name:             %{name}
 Summary:          Python library to access freedesktop.org standards
