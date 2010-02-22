@@ -1,5 +1,5 @@
 %define name      pyxdg
-%define version 0.18
+%define version 0.19
 %define release %mkrel 1
 
 Name:             %{name}
@@ -20,9 +20,9 @@ Currently supported are:
 
 	* Base Directory Specification Version 0.6 
 
-	* Menu Specification Version 1.0-draft1 
+	* Menu Specification Version 1.0 
 
-	* Desktop Entry Specification Version 0.9.4 
+	* Desktop Entry Specification Version 1.0 
 
 	* Icon Theme Specification Version 0.8 
 
@@ -39,10 +39,10 @@ Currently supported are:
 python setup.py build
 
 %install
-python setup.py install --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install --root=%{buildroot} --record=INSTALLED_FILES
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
