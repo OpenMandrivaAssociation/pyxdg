@@ -1,6 +1,6 @@
 %define name      pyxdg
 %define version 0.19
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:             %{name}
 Summary:          Python library to access freedesktop.org standards
@@ -12,7 +12,7 @@ URL:              http://www.freedesktop.org/Software/pyxdg
 Group:            System/Libraries
 BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:          LGPLv2
-%py_requires -d
+BuildRequires:    python-devel
 
 %description
 PyXDG is a python library to access freedesktop.org standards. 
@@ -39,7 +39,7 @@ Currently supported are:
 python setup.py build
 
 %install
-python setup.py install --root=%{buildroot} --record=INSTALLED_FILES
+PYTHONDONTWRITEBYTECODE= python setup.py install --root=%{buildroot} --record=INSTALLED_FILES
 
 %clean
 rm -rf %{buildroot}
@@ -47,5 +47,3 @@ rm -rf %{buildroot}
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog README TODO
-
-
