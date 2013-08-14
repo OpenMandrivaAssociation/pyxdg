@@ -19,6 +19,23 @@ Currently supported are:
 	* Recent File Spec 0.2 
 	* Shared-MIME-Database Specification 0.13 
 
+%package -n python-xdg
+Summary:	Python library to access freedesktop.org standards
+Group:		System/Libraries
+# both pkgs improperly named
+%rename		python-pyxdg
+%rename		pyxdg
+
+%description -n python-xdg
+PyXDG is a python library to access freedesktop.org standards. 
+Currently supported are:
+	* Base Directory Specification Version 0.6 
+	* Menu Specification Version 1.0 
+	* Desktop Entry Specification Version 1.0 
+	* Icon Theme Specification Version 0.8 
+	* Recent File Spec 0.2 
+	* Shared-MIME-Database Specification 0.13 
+
 %prep
 %setup -q
 
@@ -30,6 +47,6 @@ PYTHONDONTWRITEBYTECODE= python setup.py install \
 	--root=%{buildroot} \
 	--record=INSTALLED_FILES
 
-%files -f INSTALLED_FILES
+%files -n python-xdg -f INSTALLED_FILES
 %doc AUTHORS COPYING ChangeLog README TODO
 
