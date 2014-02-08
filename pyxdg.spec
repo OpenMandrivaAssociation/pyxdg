@@ -1,6 +1,6 @@
 %define name      pyxdg
 %define version 0.19
-%define release %mkrel 4
+%define release 5
 
 Name:             %{name}
 Summary:          Python library to access freedesktop.org standards
