@@ -1,2 +1,4 @@
+removed_sources:
+  pyxdg-0.19.tar.gz: 71162cf78c2fd0152d795ebe57984fc48226249b
 sources:
-  "pyxdg-0.19.tar.gz": 71162cf78c2fd0152d795ebe57984fc48226249b
+  pyxdg-0.25.tar.gz: 1272ee62b8c3909ac4844a34a95f8b1fb3398af2
