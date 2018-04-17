@@ -1,11 +1,11 @@
 Summary:	Python library to access freedesktop.org standards
 Name:		pyxdg
-Version:	0.25
-Release:	4
+Version:	0.26
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		http://www.freedesktop.org/Software/pyxdg
-Source0:	http://www.freedesktop.org/~lanius/%{name}-%{version}.tar.gz
+Source0:	https://github.com/takluyver/pyxdg/archive/rel-%{version}.tar.gz
 Buildarch:	noarch
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(python3)
@@ -46,7 +46,7 @@ Group:		System/Libraries
 PyXDG is a python 2 library to access freedesktop.org standards. 
 
 %prep
-%setup -q
+%setup -qn pyxdg-rel-%{version}
 mkdir ../py3build
 cp -a . ../py3build
 mv ../py3build .
@@ -61,18 +61,18 @@ popd
 %install
 pushd py3build
 PYTHONDONTWRITEBYTECODE= %__python3 setup.py install \
-	--root=%{buildroot} \
-	--record=INSTALLED_FILES
+	--root=%{buildroot}
 popd
 PYTHONDONTWRITEBYTECODE= %__python2 setup.py install \
 	--root=%{buildroot}
 	
 
-%files -n python-xdg -f py3build/INSTALLED_FILES
+%files -n python-xdg
 %doc AUTHORS COPYING ChangeLog README TODO
+%{python3_sitelib}/xdg
+%{python3_sitelib}/pyxdg-*.egg-info
 
 %files -n python2-xdg
 %doc AUTHORS COPYING ChangeLog README TODO
 %{python2_sitelib}/xdg
 %{python2_sitelib}/pyxdg-*.egg-info
-
