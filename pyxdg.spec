@@ -1,11 +1,11 @@
 Summary:	Python library to access freedesktop.org standards
 Name:		pyxdg
-Version:	0.26
-Release:	4
+Version:	0.27
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2
 Url:		http://www.freedesktop.org/Software/pyxdg
-Source0:	https://github.com/takluyver/pyxdg/archive/rel-%{version}.tar.gz
+Source0:	https://github.com/takluyver/pyxdg/archive/rel-%{version}/%{name}-rel-%{version}.tar.gz
 Buildarch:	noarch
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(python3)
