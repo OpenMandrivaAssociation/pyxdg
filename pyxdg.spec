@@ -8,7 +8,9 @@ Url:		http://www.freedesktop.org/Software/pyxdg
 Source0:	https://github.com/takluyver/pyxdg/archive/rel-%{version}/%{name}-rel-%{version}.tar.gz
 Buildarch:	noarch
 BuildRequires:	pkgconfig(python2)
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python3dist(setuptools)
+BuildRequires:  python2dist(setuptools)
 
 %description
 PyXDG is a python library to access freedesktop.org standards. 
