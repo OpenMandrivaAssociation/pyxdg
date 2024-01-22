@@ -1,16 +1,15 @@
 Summary:	Python library to access freedesktop.org standards
 Name:		pyxdg
 Version:	0.28
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	LGPLv2
 Url:		http://www.freedesktop.org/Software/pyxdg
 Source0:	https://github.com/takluyver/pyxdg/archive/rel-%{version}/%{name}-rel-%{version}.tar.gz
 Buildarch:	noarch
-BuildRequires:	pkgconfig(python2)
-BuildRequires:	pkgconfig(python)
-BuildRequires:	python3dist(setuptools)
-BuildRequires:  python2dist(setuptools)
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(pip)
 
 %description
 PyXDG is a python library to access freedesktop.org standards. 
@@ -40,41 +39,16 @@ Currently supported are:
 	* Recent File Spec 0.2 
 	* Shared-MIME-Database Specification 0.13 
 
-%package -n python2-xdg
-Summary:	Python3 library to access freedesktop.org standards
-Group:		System/Libraries
-
-%description -n python2-xdg
-PyXDG is a python 2 library to access freedesktop.org standards. 
-
 %prep
-%setup -qn pyxdg-rel-%{version}
-mkdir ../py3build
-cp -a . ../py3build
-mv ../py3build .
-find py3build -name '*.py' | xargs sed -i '1s|^#!python|#!python3|'
+%autosetup -p1 -n pyxdg-rel-%{version}
 
 %build
-%__python2 setup.py build
-pushd py3build
-%__python3 setup.py build
-popd
+%py_build
 
 %install
-pushd py3build
-PYTHONDONTWRITEBYTECODE= %__python3 setup.py install \
-	--root=%{buildroot}
-popd
-PYTHONDONTWRITEBYTECODE= %__python2 setup.py install \
-	--root=%{buildroot}
-	
+%py_install
 
 %files -n python-xdg
 %doc AUTHORS COPYING ChangeLog README TODO
 %{python3_sitelib}/xdg
 %{python3_sitelib}/pyxdg-*.egg-info
-
-%files -n python2-xdg
-%doc AUTHORS COPYING ChangeLog README TODO
-%{python2_sitelib}/xdg
-%{python2_sitelib}/pyxdg-*.egg-info
